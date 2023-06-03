@@ -6,6 +6,7 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 import { AuthState } from './auth/reducers';
 import { state } from '@angular/animations';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selector';
+import { logout } from './auth/auth.action';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +20,9 @@ export class AppComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isLoggedOut$: Observable<boolean>;
 
-  constructor(private router: Router, private store: Store<AuthState>) {
-
-  }
+  constructor(
+    private router: Router,
+    private store: Store<AuthState>) {}
 
   ngOnInit() {
 
@@ -69,6 +70,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
+    this.store.dispatch(logout());
 
   }
 
