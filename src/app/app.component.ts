@@ -45,15 +45,16 @@ export class AppComponent implements OnInit {
 
     // this.store.subscribe(state => { console.log("current Store value:",state)});
 
-    this.isLoggedIn$ = this.store
-      .pipe(
-        map( state => !!state["auth"].user)
-      )
+    // Query the store data ow.
+    // this.isLoggedIn$ = this.store
+    //   .pipe(
+    //     map( state => !!state["auth"].user)
+    //   )
 
-    this.isLoggedOut$ = this.store
-    .pipe(
-      map( state => !state["auth"].user)
-    )
+    // this.isLoggedOut$ = this.store
+    // .pipe(
+    //   map( state => !state["auth"].user)
+    // )
   }
 
   logout() {
